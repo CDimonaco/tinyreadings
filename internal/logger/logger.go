@@ -7,7 +7,7 @@ import (
 	"github.com/cdimonaco/tinyreadings/internal/config"
 )
 
-func ConfigureGlobalLogger(config config.Config) {
+func ConfigureGlobalLogger(config *config.Config) {
 	opts := slog.HandlerOptions{
 		Level: slog.LevelDebug,
 	}
