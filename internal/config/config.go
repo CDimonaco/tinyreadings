@@ -8,7 +8,7 @@ type Config struct {
 	DBPassword string `env:"DB_PASSWORD,required"`
 	DBPort     int    `env:"DB_PORT,required"`
 	DBName     string `env:"DB_NAME,required"`
-	Env        string `env:"ENV" envDefault:"development"`
+	Env        string `env:"ENV"                  envDefault:"development"`
 }
 
 func LoadConfig() (*Config, error) {

@@ -1,8 +1,6 @@
 package main
 
 import (
-	"log/slog"
-
 	"github.com/cdimonaco/tinyreadings/internal/config"
 	"github.com/cdimonaco/tinyreadings/internal/logger"
 	"github.com/cdimonaco/tinyreadings/internal/version"
@@ -18,7 +16,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	logger.ConfigureGlobalLogger(config)
+	logger := logger.CreateLogger(config)
 
-	slog.Info("TinyReadings starting up", "version", version.Version, "build", version.BuildDate)
+	logger.Info("TinyReadings starting up", "version", version.Version, "build", version.BuildDate)
 }

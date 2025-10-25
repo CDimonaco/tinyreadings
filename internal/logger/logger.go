@@ -7,7 +7,7 @@ import (
 	"github.com/cdimonaco/tinyreadings/internal/config"
 )
 
-func ConfigureGlobalLogger(config *config.Config) {
+func CreateLogger(config *config.Config) *slog.Logger {
 	opts := slog.HandlerOptions{
 		Level: slog.LevelDebug,
 	}
@@ -16,7 +16,9 @@ func ConfigureGlobalLogger(config *config.Config) {
 		handler = slog.NewJSONHandler(os.Stdout, &opts)
 	}
 
-	slog.SetDefault(slog.New(handler))
+	logger := slog.New(handler)
 
-	slog.Info("Logger configured", "env", config.Env)
+	logger.Info("Logger configured", "env", config.Env)
+
+	return logger
 }
