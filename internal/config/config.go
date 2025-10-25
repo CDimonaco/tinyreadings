@@ -17,5 +17,5 @@ func LoadConfig() (*Config, error) {
 	if err != nil {
 		return nil, err
 	}
-	return nil, nil
+	return &config, nil
 }
